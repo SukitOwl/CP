@@ -47,18 +47,23 @@ def main():
         # b = int(sys.argv[2])
         right = max(a, b)
         left = min(a, b)
+        old_right = right
         old_max_length = 0
-        for n in step_back_range(right, left):
+        # for n in step_back_range(right, left):
+        while old_right >= left:
+            n = old_right
             # print(n)
             value_on_cache = cache.get(n)
             if value_on_cache:
                 if value_on_cache > old_max_length:
                     old_max_length = value_on_cache
+                old_right = old_right - 1    
                 continue
             length, arr = two_n_plus_1(n, cache=cache)
             cache = update_cache(cache, length, arr)
             if length > old_max_length:
                 old_max_length = length
+            old_right = old_right - 1
         print('{} {} {}'.format(a, b, old_max_length))
         # print('max_length = {}'.format(old_max_length))
         # print('cache state = {}'.format(cache))
