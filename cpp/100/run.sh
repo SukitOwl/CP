@@ -8,4 +8,5 @@ g++ -o 100 100.cpp
 echo "========== app ==========\n"
 rm app
 g++ -o app app.cpp
- 
+
+./app
