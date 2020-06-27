@@ -1,0 +1,8 @@
+#/bin/bash
+
+set +e
+
+rm app
+g++ -o app fib.cpp
+
+./app
